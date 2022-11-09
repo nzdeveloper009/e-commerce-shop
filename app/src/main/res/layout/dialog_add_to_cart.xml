@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="10dp"
+        app:cardBackgroundColor="@color/cardBackground"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="@dimen/_20sdp"
+                android:text="Stock = 129"
+                android:textColor="@color/primary_text_color" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <ImageButton
+                    android:id="@+id/increaseQuantity"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@null"
+                    android:src="@drawable/ic_baseline_add_circle_24" />
+
+                <EditText
+                    android:id="@+id/setQuantityEt"
+                    android:layout_width="50dp"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:hint="0"
+                    android:textColor="@color/black" />
+
+                <ImageButton
+                    android:id="@+id/decreaseQuantity"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@null"
+                    android:src="@drawable/ic_minus"
+                    app:tint="@color/secondary_text_color" />
+
+            </LinearLayout>
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:id="@+id/add_to_cart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_below="@+id/categoriesTIL"
+                android:layout_gravity="center"
+                android:background="@drawable/shape_button_rounded"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:paddingTop="@dimen/btn_paddingTopBottom"
+                android:paddingBottom="@dimen/btn_paddingTopBottom"
+                android:text="@string/add_to_cart"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/btn_text_size" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

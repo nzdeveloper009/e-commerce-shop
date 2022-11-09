@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "810411523363",
+    "project_id": "mian-brothers-27970",
+    "storage_bucket": "mian-brothers-27970.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:810411523363:android:bee562694e042a99b46096",
+        "android_client_info": {
+          "package_name": "com.mianbrothersbooksellerandstationers.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "810411523363-vv82v0scsi019uk9mv4ft088r4sg3pv4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAz9hFNpgQmdBI5jqi5Eu1HPaDTrdh3lVI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "810411523363-vv82v0scsi019uk9mv4ft088r4sg3pv4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

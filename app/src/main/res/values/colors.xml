@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#0C90F1</color>
+    <color name="purple_500">#0C90F1</color>
+    <color name="purple_700">#0591F8</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="colorPrimary">#0C90F1</color>
+    <color name="colorPrimaryDark">#0591F8</color>
+    <color name="colorAccent">#0C90F1</color>
+
+    <color name="primary_text_color">#363A43</color>
+    <color name="secondary_text_color">#7A8089</color>
+
+    <color name="snackbar_error_color">#F72400</color>
+    <color name="snackbar_warning_color">#f0ad4e</color>
+    <color name="snackbar_success_color">#22bb33</color>
+
+    <color name="divider_color">#EAEAEA</color>
+    <color name="backgroundColor">#DAFDFDFD</color>
+    <color name="cardBackground">#f6f6f6</color>
+
+    <color name="disable_card">#40959595</color>
+    <color name="grayColor">#636262</color>
+
+</resources>

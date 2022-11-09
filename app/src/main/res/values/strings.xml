@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Mian Brothers Book Seller and Stationers</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_in">Sign In</string>
+    <string name="intro_text_description">Welcome in Brothers Book Seller And Stationers</string>
+    <string name="image_contentDescription">desc</string>
+    <string name="let_s_get_started_text">Let\'s Get Start Shopping</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="sign_in_description_text">Enter your name, email id and password, to register with us.</string>
+    <string name="please_wait">Please Wait&#8230;</string>
+    <string name="please_click_back_again_to_exit">Please click back again to exit.</string>
+    <string name="pwd">Admin@786</string>
+    <string name="add_category">Add Category</string>
+    <string name="add_product">Add Product</string>
+    <string name="name">Name</string>
+    <string name="description">Description</string>
+    <string name="add">Add</string>
+    <string name="price">Price</string>
+    <string name="stock">Stock</string>
+    <string name="sign_up_description_text">Enter your\'s detail, to register with us.</string>
+    <string name="cnf_password">Confirm Password</string>
+    <string name="category">Category</string>
+    <string name="nav_my_profile">My Profile</string>
+    <string name="nav_sign_out">Sign Out</string>
+    <string name="product">Produts</string>
+    <string name="nav_my_cart">Cart</string>
+    <string name="add_to_cart">Add To Cart</string>
+
+    <string-array name="category">
+        <item>Stationery</item>
+        <item>Books</item>
+        <item>Novels</item>
+    </string-array>
+</resources>

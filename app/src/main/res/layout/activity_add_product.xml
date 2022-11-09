@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.admin.AddProductActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_add_product_activity"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!--This layout is just used for applying a background image to the screen below the toolbar.-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ic_background">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/my_profile_screen_content_marginStartEnd"
+            android:layout_marginTop="@dimen/my_profile_screen_content_marginTopBottom"
+            android:layout_marginEnd="@dimen/my_profile_screen_content_marginStartEnd"
+            android:layout_marginBottom="@dimen/my_profile_screen_content_marginTopBottom"
+            android:elevation="@dimen/card_view_elevation"
+            app:cardCornerRadius="@dimen/card_view_corner_radius">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbarStyle="outsideOverlay">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="@dimen/my_profile_screen_content_padding">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/iv_image"
+                        android:layout_width="@dimen/board_image_size"
+                        android:layout_height="@dimen/board_image_size"
+                        android:contentDescription="@string/image_contentDescription"
+                        android:src="@drawable/ic_place_holder" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/categoriesTIL"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="25dp"
+                        app:endIconMode="clear_text"
+                        app:errorEnabled="true"
+                        app:errorIconDrawable="@drawable/ic_error"
+                        app:helperTextTextColor="@android:color/holo_red_dark"
+                        app:placeholderText="Enter Category Name">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/categoriesET"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/category"
+                            android:inputType="textEmailAddress"
+                            android:textSize="@dimen/et_text_size" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/nameTIL"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        app:endIconMode="clear_text"
+                        app:errorEnabled="true"
+                        app:errorIconDrawable="@drawable/ic_error"
+                        app:helperTextTextColor="@android:color/holo_red_dark"
+                        app:placeholderText="Enter Product Name">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/nameET"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/name"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:textSize="@dimen/et_text_size" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/shortDescTIL"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="80"
+                        app:endIconMode="clear_text"
+                        app:errorEnabled="true"
+                        app:errorIconDrawable="@drawable/ic_error"
+                        app:helperTextTextColor="@android:color/holo_red_dark"
+                        app:placeholderText="Enter Short Description">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/shortDescriptionET"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Short Description"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:textSize="@dimen/et_text_size" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/priceTIL"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        app:endIconMode="clear_text"
+                        app:errorEnabled="true"
+                        app:errorIconDrawable="@drawable/ic_error"
+                        app:helperTextTextColor="@android:color/holo_red_dark"
+                        app:placeholderText="Enter Product Price">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/priceET"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/price"
+                            android:importantForAutofill="no"
+                            android:inputType="numberDecimal"
+                            android:textSize="@dimen/et_text_size" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/stockTIL"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        app:endIconMode="clear_text"
+                        app:errorEnabled="true"
+                        app:errorIconDrawable="@drawable/ic_error"
+                        app:helperTextTextColor="@android:color/holo_red_dark"
+                        app:placeholderText="Enter Product Stock">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/stockET"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/stock"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:textSize="@dimen/et_text_size" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/addBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/my_profile_btn_update_marginTop"
+                        android:background="@drawable/shape_button_rounded"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:paddingTop="@dimen/btn_paddingTopBottom"
+                        android:paddingBottom="@dimen/btn_paddingTopBottom"
+                        android:text="@string/add"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/btn_text_size" />
+
+
+                </LinearLayout>
+
+            </ScrollView>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+</LinearLayout>
