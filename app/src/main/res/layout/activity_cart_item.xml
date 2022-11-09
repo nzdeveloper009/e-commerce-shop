@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".activities.customer.CartItemActivity"
+    >
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_above="@+id/innerLinearLayout"
+        android:id="@+id/productRv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_cart" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:id="@+id/innerLinearLayout"
+        android:layout_alignParentBottom="true"
+        android:background="@color/cardBackground"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:weightSum="3"
+        >
+
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Amount Rs. 500"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_weight="1"
+            android:gravity="center"
+            />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/placeOrderBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Place Order"
+            android:background="@drawable/shape_button_rounded"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:layout_weight="2"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:padding="10dp"
+            />
+
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

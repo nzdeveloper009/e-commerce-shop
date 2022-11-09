@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context=".activities.customer.CustomerDashboardActivity">
+
+
+<ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/logo_white_background"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User Name"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="5dp"
+        android:textSize="20sp"
+        android:textColor="@color/secondary_text_color"
+        android:textStyle="bold"
+        />
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/purple_700"
+        />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ClickHome"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:layout_weight="1"
+                android:padding="12dp"
+                android:textColor="@color/black"
+                android:layout_marginStart="16dp"
+                />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="48dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_baseline_home_24"
+                app:tint="@color/purple_200"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ClickProductByCategory"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/filter_by_category_price"
+                android:layout_weight="1"
+                android:padding="12dp"
+                android:textColor="@color/black"
+                android:layout_marginStart="16dp"
+                />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="48dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_category"
+                app:tint="@color/purple_200" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ClickCart"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cart"
+                android:layout_weight="1"
+                android:padding="12dp"
+                android:textColor="@color/black"
+                android:layout_marginStart="16dp"
+                />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="48dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_show_cart"
+                app:tint="@color/purple_200"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ClickLogOut"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Sign Out"
+                android:layout_weight="1"
+                android:padding="12dp"
+                android:textColor="@color/black"
+                android:layout_marginStart="16dp"
+                />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="48dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_nav_sign_out"
+                app:tint="@color/black"
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

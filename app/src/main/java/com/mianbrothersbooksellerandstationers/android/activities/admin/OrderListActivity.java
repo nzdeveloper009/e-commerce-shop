@@ -1,13 +1,11 @@
 package com.mianbrothersbooksellerandstationers.android.activities.admin;
 
-import static com.mianbrothersbooksellerandstationers.android.utils.Constants.CATEGORY;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import com.airbnb.lottie.LottieAnimationView;
@@ -17,11 +15,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.mianbrothersbooksellerandstationers.android.R;
-import com.mianbrothersbooksellerandstationers.android.adapters.CustomerProductAdapter;
 import com.mianbrothersbooksellerandstationers.android.adapters.OrderAdapter;
-import com.mianbrothersbooksellerandstationers.android.adapters.ProductAdapter;
 import com.mianbrothersbooksellerandstationers.android.models.OrderModel;
-import com.mianbrothersbooksellerandstationers.android.models.ProductModel;
 
 import java.util.ArrayList;
 

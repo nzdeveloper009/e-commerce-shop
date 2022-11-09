@@ -15,10 +15,6 @@ public class Constants {
     //A unique code for starting the activity for result
     public static final int MY_PROFILE_REQUEST_CODE = 11;
 
-    public static final int PROFILE = R.id.nav_my_profile;
-    public static final int SIGN_OUT = R.id.nav_sign_out;
-    public static final int CART = R.id.nav_my_cart;
-
     public static Boolean isValidPattern(String input, String CHECK_PATTERN) {
         Pattern pattern = Pattern.compile(CHECK_PATTERN);
         Matcher matcher = pattern.matcher(input);

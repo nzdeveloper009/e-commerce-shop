@@ -33,7 +33,7 @@ public class FilterProducts extends Filter {
             for(int i=0;i<filterList.size();i++)
             {
                 //check search by category
-                if(filterList.get(i).getName().toUpperCase().contains(constraint.toString().toUpperCase()))
+                if(filterList.get(i).getName().toUpperCase().contains(constraint.toString().toUpperCase()) || filterList.get(i).getCategory().toUpperCase().contains(constraint.toString().toUpperCase()))
                 {
                     //add filtered data to list
                     filteredModels.add(filterList.get(i));

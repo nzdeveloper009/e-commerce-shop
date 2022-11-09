@@ -8,27 +8,36 @@ import static com.mianbrothersbooksellerandstationers.android.firebase.RealTimeC
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.mianbrothersbooksellerandstationers.android.R;
+import com.mianbrothersbooksellerandstationers.android.activities.BaseActivity;
+import com.mianbrothersbooksellerandstationers.android.activities.IntroActivity;
 
-public class CustomerDashboardActivity extends AppCompatActivity{
+public class CustomerDashboardActivity extends BaseActivity {
 
     RecyclerView productRv;
     ImageView filter;
     EditText searchFilterEt;
 
+    DrawerLayout drawerLayout;
+    FirebaseAuth auth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +49,14 @@ public class CustomerDashboardActivity extends AppCompatActivity{
         }
         setContentView(R.layout.activity_customer_dashboard);
 
+        auth = FirebaseAuth.getInstance();
+
+        if(auth == null)
+        {
+            SignOut();
+        }
+
+        drawerLayout = findViewById(R.id.drawerLayout);
         productRv = findViewById(R.id.productRv);
         filter = findViewById(R.id.filter);
         searchFilterEt = findViewById(R.id.searchFilterEt);
@@ -66,6 +83,12 @@ public class CustomerDashboardActivity extends AppCompatActivity{
 
             }
         });
+
+    }
+
+    private void SignOut() {
+        startActivity(new Intent(CustomerDashboardActivity.this, IntroActivity.class));
+        finish();
 
     }
 
@@ -96,4 +119,40 @@ public class CustomerDashboardActivity extends AppCompatActivity{
                 .show();
     }
 
+    public void ClickMenu(View view) {
+        openDrawer(drawerLayout);
+    }
+
+    private void openDrawer(DrawerLayout drawerLayout) {
+        drawerLayout.openDrawer(GravityCompat.START);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            drawerLayout.openDrawer(GravityCompat.START);
+        }
+    }
+
+    public void ClickHome(View view) {
+        drawerLayout.closeDrawer(GravityCompat.START);
+    }
+
+    public void ClickProductByCategory(View view) {
+        drawerLayout.closeDrawer(GravityCompat.START);
+        startActivity(new Intent(CustomerDashboardActivity.this,MainActivity.class));
+    }
+
+    public void ClickCart(View view) {
+    }
+
+    public void ClickLogOut(View view) {
+        drawerLayout.closeDrawer(GravityCompat.START);
+        auth.signOut();
+        SignOut();
+
+    }
 }

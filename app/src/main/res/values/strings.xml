@@ -23,9 +23,10 @@
     <string name="category">Category</string>
     <string name="nav_my_profile">My Profile</string>
     <string name="nav_sign_out">Sign Out</string>
-    <string name="product">Produts</string>
+    <string name="product">Products</string>
     <string name="nav_my_cart">Cart</string>
     <string name="add_to_cart">Add To Cart</string>
+    <string name="filter_by_category_price"><![CDATA[Filter by Category & Price]]></string>
 
     <string-array name="category">
         <item>Stationery</item>

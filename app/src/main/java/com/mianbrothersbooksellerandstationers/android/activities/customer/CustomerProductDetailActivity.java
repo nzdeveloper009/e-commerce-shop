@@ -28,12 +28,13 @@ import java.util.HashMap;
 
 public class CustomerProductDetailActivity extends BaseActivity {
 
-    String productIDStr,productPriceStr,productNameStr,productCategoryStr,productDescriptionStr,productQuantityStr;
-    TextView brandName, productDescription,originalPrice,totalPrice,stock,orderBtn;
+    String productIDStr, productPriceStr, productNameStr, productCategoryStr, productDescriptionStr, productQuantityStr;
+    TextView brandName, productDescription, originalPrice, totalPrice, stock, orderBtn;
 
-    EditText buyerName,buyerAddress,buyerPhoneNo,buyerNIC,quantity;
+    EditText buyerName, buyerAddress, buyerPhoneNo, buyerNIC, quantity;
     FirebaseAuth auth;
-    int quantityInt, totalPriceInt, originalPriceInt;
+    int ttPriceInt, stockInt, quantityInt, originalPriceInt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +45,7 @@ public class CustomerProductDetailActivity extends BaseActivity {
             getSupportActionBar().hide();
         }
         setContentView(R.layout.activity_customer_product_detail);
-        if(getIntent() != null){
+        if (getIntent() != null) {
             productIDStr = getIntent().getStringExtra("ProductID");
             productPriceStr = getIntent().getStringExtra("ProductPrice");
             productNameStr = getIntent().getStringExtra("ProductName");
@@ -60,15 +61,46 @@ public class CustomerProductDetailActivity extends BaseActivity {
     }
 
     private void listeners() {
-        orderBtn.setOnClickListener(it ->{
-            if(String.valueOf(quantity.getText()).isEmpty())
-            {
+        orderBtn.setOnClickListener(it -> {
+            if (String.valueOf(quantity.getText()).isEmpty()) {
                 Toast.makeText(this, "Please Enter Quantity", Toast.LENGTH_SHORT).show();
-            }else if(Integer.parseInt(String.valueOf(stock.getText()).trim()) < Integer.parseInt(String.valueOf(quantity.getText()).trim()))
-            {
+            } else if (Integer.parseInt(String.valueOf(stock.getText()).trim()) < Integer.parseInt(String.valueOf(quantity.getText()).trim())) {
                 Toast.makeText(this, "Range is Out", Toast.LENGTH_SHORT).show();
-            }  else {
+            } else {
                 PlaceOrderInDatabase();
+            }
+        });
+
+        quantity.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                stockInt = Integer.parseInt(String.valueOf(stock.getText()));
+                originalPriceInt = Integer.parseInt(String.valueOf(originalPrice.getText()));
+                String quantityByCustomerStr = String.valueOf(quantity.getText());
+                String ttPriceStr;
+                if (!quantityByCustomerStr.isEmpty()) {
+                    int qtByCustomerInt = Integer.parseInt(quantityByCustomerStr);
+                    if (qtByCustomerInt <= 0 || qtByCustomerInt > stockInt) {
+                        showSnackBar("Please enter valid Quantity", R.color.snackbar_error_color);
+                    } else {
+                        ttPriceInt = qtByCustomerInt * originalPriceInt;
+                        ttPriceStr = String.valueOf(ttPriceInt);
+                        totalPrice.setText(ttPriceStr);
+                    }
+                }
+                else {
+                    showSnackBar("Please enter Quantity", R.color.snackbar_error_color);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
             }
         });
     }
@@ -76,33 +108,33 @@ public class CustomerProductDetailActivity extends BaseActivity {
     private void PlaceOrderInDatabase() {
         showProgressDialog(getResources().getString(R.string.please_wait));
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-        HashMap<String,Object> data =new HashMap<>();
+        HashMap<String, Object> data = new HashMap<>();
         String orderID = String.valueOf(reference.push().getKey());
-        data.put("productname",productNameStr);
-        data.put("productcategory",productCategoryStr);
-        data.put("productid",productIDStr);
-        data.put("producttotalquantity",productQuantityStr);
-        data.put("productOrderQuantity",String.valueOf(quantity.getText()));
-        data.put("orderBy",String.valueOf(buyerName.getText()));
-        data.put("buyerAddress",String.valueOf(buyerAddress.getText()));
-        data.put("buyerPhoneNo",String.valueOf(buyerPhoneNo.getText()));
-        data.put("CashOnDelivery",String.valueOf(buyerNIC.getText()));
-        data.put("buyerID",getCurrentUserID());
-        data.put("orderID",orderID);
-        data.put("price",String.valueOf(originalPrice.getText()));
+        data.put("productname", productNameStr);
+        data.put("productcategory", productCategoryStr);
+        data.put("productid", productIDStr);
+        data.put("producttotalquantity", productQuantityStr);
+        data.put("productOrderQuantity", String.valueOf(quantity.getText()));
+        data.put("orderBy", String.valueOf(buyerName.getText()));
+        data.put("buyerAddress", String.valueOf(buyerAddress.getText()));
+        data.put("buyerPhoneNo", String.valueOf(buyerPhoneNo.getText()));
+        data.put("CashOnDelivery", String.valueOf(buyerNIC.getText()));
+        data.put("buyerID", getCurrentUserID());
+        data.put("orderID", orderID);
+        data.put("orignalPrice", String.valueOf(originalPrice.getText()));
+        data.put("price", String.valueOf(totalPrice.getText()));
         reference.child("Orders").child(orderID).setValue(data)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful())
-                        {
+                        if (task.isSuccessful()) {
                             hideProgressDialog();
-                            showSnackBar("Order Place Successfully",R.color.snackbar_success_color);
-                            startActivity(new Intent(CustomerProductDetailActivity.this,MainActivity.class));
+                            showSnackBar("Order Place Successfully", R.color.snackbar_success_color);
+                            startActivity(new Intent(CustomerProductDetailActivity.this, MainActivity.class));
                             finish();
                         } else {
                             hideProgressDialog();
-                            showSnackBar("ERRoR! ",R.color.snackbar_error_color);
+                            showSnackBar("ERRoR! ", R.color.snackbar_error_color);
                         }
                     }
                 });
