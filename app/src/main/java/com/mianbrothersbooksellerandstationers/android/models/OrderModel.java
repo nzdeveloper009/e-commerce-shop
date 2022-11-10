@@ -1,13 +1,13 @@
 package com.mianbrothersbooksellerandstationers.android.models;
 
 public class OrderModel {
-    String productname,productcategory,productid,producttotalquantity,productOrderQuantity,orderBy,buyerAddress,buyerPhoneNo,buyerNIC,buyerID,price,orderID;
+    String productname,productcategory,productid,producttotalquantity,productOrderQuantity,orderBy,buyerAddress,buyerPhoneNo,buyerID,price,orderID;
     String salesTime;
     public OrderModel() {
 
     }
 
-    public OrderModel(String productname, String productcategory, String productid, String producttotalquantity, String productOrderQuantity, String orderBy, String buyerAddress, String buyerPhoneNo, String buyerNIC, String buyerID,String price,String orderID) {
+    public OrderModel(String productname, String productcategory, String productid, String producttotalquantity, String productOrderQuantity, String orderBy, String buyerAddress, String buyerPhoneNo, String buyerID,String price,String orderID) {
         this.productname = productname;
         this.productcategory = productcategory;
         this.productid = productid;
@@ -16,7 +16,6 @@ public class OrderModel {
         this.orderBy = orderBy;
         this.buyerAddress = buyerAddress;
         this.buyerPhoneNo = buyerPhoneNo;
-        this.buyerNIC = buyerNIC;
         this.buyerID = buyerID;
         this.price = price;
         this.orderID = orderID;
@@ -31,7 +30,6 @@ public class OrderModel {
         this.orderBy = orderBy;
         this.buyerAddress = buyerAddress;
         this.buyerPhoneNo = buyerPhoneNo;
-        this.buyerNIC = buyerNIC;
         this.buyerID = buyerID;
         this.price = price;
         this.orderID = orderID;
@@ -124,14 +122,6 @@ public class OrderModel {
 
     public void setBuyerPhoneNo(String buyerPhoneNo) {
         this.buyerPhoneNo = buyerPhoneNo;
-    }
-
-    public String getBuyerNIC() {
-        return buyerNIC;
-    }
-
-    public void setBuyerNIC(String buyerNIC) {
-        this.buyerNIC = buyerNIC;
     }
 
     public String getBuyerID() {

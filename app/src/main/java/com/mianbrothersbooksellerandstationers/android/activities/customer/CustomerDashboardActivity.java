@@ -33,7 +33,7 @@ import com.mianbrothersbooksellerandstationers.android.activities.IntroActivity;
 public class CustomerDashboardActivity extends BaseActivity {
 
     RecyclerView productRv;
-    ImageView filter;
+    ImageView filter,cartIv;
     EditText searchFilterEt;
 
     DrawerLayout drawerLayout;
@@ -60,6 +60,7 @@ public class CustomerDashboardActivity extends BaseActivity {
         productRv = findViewById(R.id.productRv);
         filter = findViewById(R.id.filter);
         searchFilterEt = findViewById(R.id.searchFilterEt);
+        cartIv = findViewById(R.id.cartIv);
 
         getAllProducts(CustomerDashboardActivity.this,productRv);
 
@@ -82,6 +83,10 @@ public class CustomerDashboardActivity extends BaseActivity {
             public void afterTextChanged(Editable editable) {
 
             }
+        });
+
+        cartIv.setOnClickListener(it -> {
+            startActivity(new Intent(CustomerDashboardActivity.this,CartItemActivity.class));
         });
 
     }
@@ -147,6 +152,7 @@ public class CustomerDashboardActivity extends BaseActivity {
     }
 
     public void ClickCart(View view) {
+        startActivity(new Intent(CustomerDashboardActivity.this,CartItemActivity.class));
     }
 
     public void ClickLogOut(View view) {

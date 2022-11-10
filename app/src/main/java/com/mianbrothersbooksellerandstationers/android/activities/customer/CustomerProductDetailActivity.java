@@ -35,6 +35,8 @@ public class CustomerProductDetailActivity extends BaseActivity {
     FirebaseAuth auth;
     int ttPriceInt, stockInt, quantityInt, originalPriceInt;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -123,13 +125,13 @@ public class CustomerProductDetailActivity extends BaseActivity {
         data.put("orderID", orderID);
         data.put("orignalPrice", String.valueOf(originalPrice.getText()));
         data.put("price", String.valueOf(totalPrice.getText()));
-        reference.child("Orders").child(orderID).setValue(data)
+        reference.child("Carts").child(orderID).setValue(data)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
                             hideProgressDialog();
-                            showSnackBar("Order Place Successfully", R.color.snackbar_success_color);
+                            showSnackBar("Added to Cart Successfully", R.color.snackbar_success_color);
                             startActivity(new Intent(CustomerProductDetailActivity.this, MainActivity.class));
                             finish();
                         } else {
